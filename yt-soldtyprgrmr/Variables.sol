@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.7;
+pragma solidity 0.8.6;
 
 contract Variables {
-    uint public num1 = 123; //State variable, this will be stired on blockchain.\
+    uint public num1 = 123; //State variable, this will be stored on blockchain.\
     
     uint public i;
     bool public b;
@@ -20,5 +20,13 @@ contract Variables {
         myAddress = address(1);
 
 
+    }
+
+    function globalVars() external view returns(address, uint, uint) {
+        address sender = msg.sender;
+        uint timestamp = block.timestamp;
+        uint blockNum = block.number;
+
+        return(sender, timestamp, blockNum);
     }
 }
